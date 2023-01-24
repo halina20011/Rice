@@ -27,6 +27,9 @@ keymap("n", "<C-j>", "<C-w>j", optsVer)
 keymap("n", "<C-k>", "<C-w>k", optsVer)
 keymap("n", "<C-l>", "<C-w>l", optsVer)
 
+-- Split
+-- keymap("n", "<C-v>", ":vsplit<CR>", optsVer)
+
 -- Lex = Lexplore
 keymap("n", "<leader>e", ":Lex 30<cr>", opts)
 
@@ -52,7 +55,9 @@ keymap("v", ">", ">gv", opts)
 -- Move text up and down
 keymap("n", "<A-j>", ":m .+1<CR>==", opts)
 keymap("n", "<A-k>", ":m .-2<CR>==", opts)
--- keymap("n", "p", '"_dP', opts)
+
+keymap("n", "<S-A-j>", ":m .+1<CR>==", opts)
+keymap("n", "<S-A-k>", ":m .-2<CR>==", opts)
 
 -- Visual Block --
 -- Move text up and down
@@ -67,3 +72,8 @@ keymap("t", "<C-h>", "<C-\\><C-N><C-w>h", term_opts)
 keymap("t", "<C-j>", "<C-\\><C-N><C-w>j", term_opts)
 keymap("t", "<C-k>", "<C-\\><C-N><C-w>k", term_opts)
 keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
+
+-- Comment
+-- / == _ ?
+keymap("n", "<C-_>", "gcc", term_opts)
+keymap("v", "<C-_>", "gcc", term_opts)

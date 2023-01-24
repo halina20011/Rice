@@ -1,5 +1,5 @@
 # Rice
-Custom rice with custom scripts
+Custom rice with custom scripts and configs for my machine
 
-## Dependencies:
-i3, polybar
+## For:
+i3, polybar, neovim

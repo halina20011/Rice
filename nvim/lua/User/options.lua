@@ -15,7 +15,7 @@ local options = {
     
     hlsearch = true,                        -- highlight all matches on previous search pattern
     ignorecase = true,                      -- ignore case in search patterns
-    mouse = "a",                            -- allow the mouse to be used in neovim
+    mouse = "v",                            -- allow the mouse to be used in neovim
     -- pumheight = 10,                         -- pop up menu height
     -- showmode = false,                       -- we don't need to see things like -- INSERT -- anymore
     smartcase = true,                       -- smart case
@@ -24,7 +24,7 @@ local options = {
     splitbelow = true,                      -- force all horizontal splits to go below current window
     splitright = true,                      -- force all vertical splits to go to the right of current window
 
-    -- vim.opt.termguicolors = true,                   -- set term gui colors (most terminals support this)
+    termguicolors = true,                   -- set term gui colors (most terminals support this)
     timeoutlen = 1000,                      -- time to wait for a mapped sequence to complete (in milliseconds)
     undofile = true,                        -- enable persistent undo
     updatetime = 300,                       -- faster completion (4000ms default)
