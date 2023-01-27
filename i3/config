@@ -46,11 +46,16 @@ bindsym XF86AudioPrev exec playerctl --player=spotify previous
 bindsym XF86AudioPlay exec playerctl --player=spotify play-pause
 bindsym XF86AudioNext exec playerctl --player=spotify next
 
-bindsym XF86AudioRaiseVolume exec --no-startup-id amixer sset Master -R 2%+; exec alacritty pkill -SIGRTMIN+10 i3blocks
-bindsym XF86AudioLowerVolume exec --no-startup-id amixer sset Master -R 2%-
-bindsym XF86AudioMute exec --no-startup-id amixer sset Master toggle && amixer sset 
+bindsym XF86AudioRaiseVolume exec --no-startup-id "bash /home/mario/.config/i3/volumeControl.sh up"
+bindsym XF86AudioLowerVolume exec --no-startup-id "bash /home/mario/.config/i3/volumeControl.sh down"
+bindsym XF86AudioMute exec --no-startup-id "bash /home/mario/.config/i3/volumeControl.sh toggle"
+
+bindsym Shift+XF86AudioRaiseVolume exec --no-startup-id "bash /home/mario/.config/i3/volumeControl.sh up shift"
+bindsym Shift+XF86AudioLowerVolume exec --no-startup-id "bash /home/mario/.config/i3/volumeControl.sh down shift"
+bindsym Shift+XF86AudioMute exec --no-startup-id "bash /home/mario/.config/i3/volumeControl.sh toggle shift"
 #bindsym XF86AudioMicMute exec --no-startup-id pactl 
 
+# bindsym Shift+XF86AudioRaiseVolume exec --no-startup-id alacritty
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 

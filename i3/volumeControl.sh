@@ -1,10 +1,18 @@
 #!/bin/bash
+# ./volumeControl.sh [up/down/toggle] [/shift]
 
-info=""
+# echo $@
 
-# Master
-master=($(amixer get Master | grep "Mono:"))
-masterStatus=${master[${#master[@]} - 1]}
+if [[ $1 == "up" ]] && [[ $2 != "shift" ]]; then
+    (amixer sset Master -R 2%+)
+    exit 0
+elif [[ $1 == "down" ]] && [[ $2 != shift ]]; then
+    (amixer sset Master -R 2%-)
+    exit 0
+elif [[ $1 == "toggle" ]] && [[ $2 != shift ]]; then
+    (amixer sset Master toggle)
+    exit 0
+fi
 
 # Speaker
 speakerLeft=($(amixer get Speaker | grep "Front Left:"))
@@ -31,46 +39,29 @@ headphoneStatusRight=${headphoneRight[${#headphoneRight[@]} - 1]}
 headphone=""
 headphoneStatus=""
 
+
 if [ $headphoneStatusLeft == $headphoneStatusRight ] && [ $headphoneStatusLeft == "[on]" ]; then
     headphone=$(echo $headphoneStatusLeft)
     headphoneStatus="[on]" 
 fi 
 
+device=""
+if [[ $speakerStatus == "[on]" ]]; then
+    device="Speaker"
+elif [[ $headphoneStatus == "[on]" ]]; then
+    device="Headphone"
+fi
 
-# printf "Master              $masterStatus\n"
-#
-# printf "Speaker             $speakerStatus\n"
-# printf "Speaker Left        $speakerStatusLeft\n"
-# printf "Speaker Rigth       $speakerStatusRight\n"
-#
-# printf "Headphone left:     $headphoneStatusLeft\n"
-# printf "Headphone right:    $headphoneStatusRight\n"
+if [[ $device == "" ]]; then
+    exit 1
+fi
 
-if [[ ${masterStatus} == "[off]" ]]; then
-    printf "off\n"
+if [[ $1 == "up" ]] && [[ $2 == "shift" ]]; then
+    (amixer sset ${device} -R 2%+)
     exit 0
+elif [[ $1 == "down" ]] && [[ $2 == shift ]]; then
+    (amixer sset ${device} -R 2%-)
+    exit 0
+elif [[ $1 == "toggle" ]] && [[ $2 == shift ]]; then
+    (amixer sset ${device} toggle)
 fi
-
-function parseV(){
-    echo $(echo $1 | tr -d '[]')
-}
-
-if [[ ${masterStatus} == "[on]" ]]; then
-    info="$(parseV ${master[3]})"
-
-    if [[ $headphoneStatus == "[on]" ]]; then
-        info="$info H: $(parseV ${headphoneLeft[4]})"
-
-    elif [[ $speakerStatus == "[on]" ]]; then
-        info="$info S: $(parseV ${speakerLeft[4]})"
-        
-    else
-        info="Error ;)"
-    fi
-else
-    echo "Error ;)"
-fi
-
-echo $info
-
-exit 0
