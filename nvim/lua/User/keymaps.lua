@@ -76,4 +76,7 @@ keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
 -- Comment
 -- / == _ ?
 keymap("n", "<C-_>", "gcc", term_opts)
-keymap("v", "<C-_>", "gcc", term_opts)
+keymap("v", "<C-_>", "gc", term_opts)
+
+
+keymap("n", "tt", ":tabnew<CR>", term_opts)

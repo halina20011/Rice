@@ -2,14 +2,13 @@
 -- local servers = {}
 local servers = {
 	"sumneko_lua",
-    -- "cssl",
+    "cssls",
+    "html",
+    -- "tailwindcss",
+    "denols",
 	"pyright",
 	"jsonls",
 }
-
-for i = 1, 10, 1 do
-    
-end
 
 local settings = {
 	ui = {
