@@ -46,13 +46,13 @@ bindsym XF86AudioPrev exec playerctl --player=spotify previous
 bindsym XF86AudioPlay exec playerctl --player=spotify play-pause
 bindsym XF86AudioNext exec playerctl --player=spotify next
 
-bindsym XF86AudioRaiseVolume exec --no-startup-id "bash /home/mario/.config/i3/volumeControl.sh up"
-bindsym XF86AudioLowerVolume exec --no-startup-id "bash /home/mario/.config/i3/volumeControl.sh down"
-bindsym XF86AudioMute exec --no-startup-id "bash /home/mario/.config/i3/volumeControl.sh toggle"
+bindsym XF86AudioRaiseVolume exec --no-startup-id "bash $HOME/.config/i3/volumeControl.sh up"
+bindsym XF86AudioLowerVolume exec --no-startup-id "bash $HOME/.config/i3/volumeControl.sh down"
+bindsym XF86AudioMute exec --no-startup-id "bash $HOME/.config/i3/volumeControl.sh toggle"
 
-bindsym Shift+XF86AudioRaiseVolume exec --no-startup-id "bash /home/mario/.config/i3/volumeControl.sh up shift"
-bindsym Shift+XF86AudioLowerVolume exec --no-startup-id "bash /home/mario/.config/i3/volumeControl.sh down shift"
-bindsym Shift+XF86AudioMute exec --no-startup-id "bash /home/mario/.config/i3/volumeControl.sh toggle shift"
+bindsym Shift+XF86AudioRaiseVolume exec --no-startup-id "bash $HOME/.config/i3/volumeControl.sh up shift"
+bindsym Shift+XF86AudioLowerVolume exec --no-startup-id "bash $HOME/.config/i3/volumeControl.sh down shift"
+bindsym Shift+XF86AudioMute exec --no-startup-id "bash $HOME/.config/i3/volumeControl.sh toggle shift"
 #bindsym XF86AudioMicMute exec --no-startup-id pactl 
 
 # bindsym Shift+XF86AudioRaiseVolume exec --no-startup-id alacritty
@@ -185,10 +185,10 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-set $i3lockwall i3lock -i $HOME/Documents/wallpapers/lockImg.png -t
+set $i3lockwall i3lock -i $HOME/Documents/Wallpapers/lockImg.png -t
 bindsym $mod+l exec $i3lockwall; exec SDL_VIDEO_FULLSCREEN_HEAD=0
 
-set $i3lockwall2 i3lock -ui $HOME/Documents/wallpapers/black.png -t
+set $i3lockwall2 i3lock -ui $HOME/Documents/Wallpapers/black.png -t
 bindsym $mod+Shift+l exec $i3lockwall2; exec SDL_VIDEO_FULLSCREEN_HEAD=0
 
 bindsym $mod+Shift+f exec --no-startup-id alacritty -e ranger

@@ -1,8 +1,9 @@
 i3=~/.config/i3
 polybar=~/.config/polybar
-neovim=~/.config/nvim/ 
+neovim=~/.config/nvim
+alacritty=~/.config/alacritty
 
-configs=("$i3 $polybar $neovim")
+configs=("$i3 $polybar $neovim $alacritty")
 
 # echo ${configs[@]}
 
