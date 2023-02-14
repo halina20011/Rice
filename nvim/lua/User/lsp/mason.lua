@@ -1,11 +1,10 @@
 
 -- local servers = {}
 local servers = {
-	"sumneko_lua",
     "cssls",
     "html",
     -- "tailwindcss",
-    "denols",
+    -- "denols",
 	"pyright",
 	"jsonls",
 }

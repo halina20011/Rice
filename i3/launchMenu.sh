@@ -7,7 +7,9 @@ sForeground=$(jq ".selectedForeground" ~/.themeScheme.json | tr -d '"')
 barHeight=$(jq .barHeight ~/.themeScheme.json)
 lockImage=$(jq .lockImage ~/.themeScheme.json | tr -d '"')
 
+lockImage=$(eval "echo $lockImage")
 echo $lockImage
+
 lockWall="i3lock -i $lockImage -t"
 
 # -nb normal background

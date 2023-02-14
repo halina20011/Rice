@@ -6,3 +6,5 @@ i3
 polybar
 neovim
 alacritty
+dmenu
+firefox
