@@ -26,24 +26,26 @@ vim.cmd [[
 -- Use a protected call so we don't error out on first use
 local status_ok, packer = pcall(require, "packer")
 if not status_ok then
-  return
+    return
 end
 
 -- Have packer use a popup window
-packer.init {
-  display = {
-    open_fn = function()
-      return require("packer.util").float { border = "rounded" }
-    end,
-  },
-}
+packer.init({
+	display = {
+		open_fn = function()
+			return require("packer.util").float({ border = "rounded" })
+		end,
+	},
+})
 
 -- Install your plugins here
 return packer.startup(function(use)
-    -- My plugins here
-    use "wbthomason/packer.nvim" -- Have packer manage itself
+    use { "wbthomason/packer.nvim", commit = "6afb67460283f0e990d35d229fd38fdc04063e0a" } -- Have packer manage itself
     use "nvim-lua/popup.nvim" -- An implementation of the Popup API from vim in Neovim
     use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
+
+    -- Indent Blankline
+    use "lukas-reineke/indent-blankline.nvim"
 
     -- Colorschemes
     -- use "lunarvim/colorschemes" -- A bunch of colorschemes you can try out
@@ -64,10 +66,12 @@ return packer.startup(function(use)
     use "rafamadriz/friendly-snippets" -- a bunch of snippets to use
 
     -- LSP
-    use "neovim/nvim-lspconfig" -- enable LSP
-    use "williamboman/mason.nvim" -- simple to use language server installer
-    use "williamboman/mason-lspconfig.nvim" -- simple to use language server installer
-    use 'jose-elias-alvarez/null-ls.nvim' -- LSP diagnostics and code actions
+    use { "neovim/nvim-lspconfig", commit = "f11fdff7e8b5b415e5ef1837bdcdd37ea6764dda" }
+    -- simple to use language server installer
+    use { "williamboman/mason.nvim", commit = "c2002d7a6b5a72ba02388548cfaf420b864fbc12"} 
+    use { "williamboman/mason-lspconfig.nvim", commit = "0051870dd728f4988110a1b2d47f4a4510213e31" }
+    -- for formatters and linters
+    use { "jose-elias-alvarez/null-ls.nvim", commit = "c0c19f32b614b3921e17886c541c13a72748d450" } 
 
     -- Git
     use "lewis6991/gitsigns.nvim"
@@ -78,6 +82,6 @@ return packer.startup(function(use)
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
     if PACKER_BOOTSTRAP then
-    require("packer").sync()
+        require("packer").sync()
     end
 end)

@@ -212,6 +212,8 @@ bindsym $mod+z exec --no-startup-id bash -c "xclip -sel pri -o -r | xclip -sel c
 bindsym --release $mod+Print exec --no-startup-id "bash /home/mario/.config/i3/newScreenshot.sh"
 bindsym --release $mod+Shift+s exec --no-startup-id "bash /home/mario/.config/i3/copyImage.sh"
 
+bindsym --release $mod+Shift+v exec --no-startup-id "/home/mario/Programming/C/ClipboardHistory/Build/x11Window"
+
 # xprop | grep WM_CLASS
 # The first element is always the instance, the second always the class. Be careful: the case matters.
 for_window [class="firefox" instance="Navigator"] move to workspace $ws2

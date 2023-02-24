@@ -31,7 +31,7 @@ local options = {
 
     -- Tabs
     expandtab = true,                       -- convert tabs to spaces
-    showtabline = 4,                        -- always show tabs
+    showtabline = 2,                        -- always show tabs
     shiftwidth = 4,                         -- the number of spaces inserted for each indentation
     tabstop = 4,                            -- insert 4 spaces for a tab
 
