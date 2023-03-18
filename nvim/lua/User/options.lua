@@ -1,14 +1,15 @@
+-- For more options write type ":help options"
+
 local options = {
-    -- For more options write type ":help options"
     backup = false,                        -- creates a backup file
     swapfile = true,                       -- creates a swapfile
     writebackup = true,                    -- if a file is being used by another process, it is not allowed to be edited
 
     clipboard = "unnamedplus",              -- allows neovim to access the system clipboard
-    -- vim.opt.cmdheight = 2,                           -- more space in the neovim command line for displaying messages
+    -- vim.opt.cmdheight = 2,                  -- more space in the neovim command line for displaying messages
     completeopt = { "menuone", "noselect" },-- mostly just for cmp
     conceallevel = 0,                       -- so that `` is visible in markdown files
-    -- fileencoding = "utf-8",                 -- the encoding written to a file
+    fileencoding = "utf-8",                 -- the encoding written to a file
     formatoptions = "l",
     linebreak = true,
     breakindent = true,
@@ -37,13 +38,13 @@ local options = {
 
     cursorline = true,                      -- highlight the current line
     number = true,                          -- set numbered lines
-    relativenumber = false,                 -- set relative numbered lines
-    numberwidth = 4,                        -- set number column width to 2 {default 4}
+    relativenumber = true,                  -- set relative numbered lines
+    numberwidth = 2,                        -- set number column width to 2 {default 4}
     signcolumn = "yes",                     -- always show the sign column, otherwise it would shift the text each time
     wrap = true,                            -- display lines as one long line
 
-    scrolloff = 2,                          -- limit on cursor position when scrolling down 
-    sidescrolloff = 6,                      -- when scrolling up
+    scrolloff = 4,                          -- limit on cursor position when scrolling down 
+    sidescrolloff = 4,                      -- when scrolling up
 
     guifont = "monospace:h17",              -- the font used in graphical neovim applications
 }

@@ -10,3 +10,5 @@ require "User.comment"
 
 require "User.colorScheme"
 require "User.markdownPreview"
+
+require "User.vimtex"
