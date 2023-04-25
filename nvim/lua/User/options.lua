@@ -19,8 +19,9 @@ local options = {
     mouse = "v",                            -- allow the mouse to be used in neovim
     -- pumheight = 10,                         -- pop up menu height
     -- showmode = false,                       -- we don't need to see things like -- INSERT -- anymore
-    smartcase = true,                       -- smart case
-    smartindent = true,                     -- make indenting smarter again
+    smartcase = false,                       -- smart case
+    smartindent = false,                     -- make indenting smarter again
+    smarttab = false,
 
     splitbelow = true,                      -- force all horizontal splits to go below current window
     splitright = true,                      -- force all vertical splits to go to the right of current window
@@ -43,10 +44,17 @@ local options = {
     signcolumn = "yes",                     -- always show the sign column, otherwise it would shift the text each time
     wrap = true,                            -- display lines as one long line
 
-    scrolloff = 4,                          -- limit on cursor position when scrolling down 
-    sidescrolloff = 4,                      -- when scrolling up
+    scrolloff = 6,                          -- limit on cursor position when scrolling down 
+    sidescrolloff = 6,                      -- when scrolling up
 
     guifont = "monospace:h17",              -- the font used in graphical neovim applications
+    -- foldlevel       = 0,
+    foldlevelstart       = 0,
+    -- foldmethod="syntax",
+    foldmethod = "expr",
+    foldexpr = "nvim_treesitter#foldexpr()",
+    -- foldlevelstart=99,
+    foldcolumn = "1",
 }
 
 for k, v in pairs(options) do

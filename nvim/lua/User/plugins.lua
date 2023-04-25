@@ -43,7 +43,7 @@ return packer.startup(function(use)
     use { "wbthomason/packer.nvim", commit = "6afb67460283f0e990d35d229fd38fdc04063e0a" } -- Have packer manage itself
     use "nvim-lua/popup.nvim" -- An implementation of the Popup API from vim in Neovim
     use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
-
+    use "folke/which-key.nvim"
     -- Indent Blankline
     use "lukas-reineke/indent-blankline.nvim"
 
@@ -59,7 +59,7 @@ return packer.startup(function(use)
     use "hrsh7th/cmp-cmdline"           -- cmdline completions
     use "saadparwaiz1/cmp_luasnip"      -- snippet completions
     -- use "hrsh7th/cmp-nvim-lsp"
-    -- use "hrsh7th/cmp-nvim-lua"
+    use "hrsh7th/cmp-nvim-lua"
 
     -- Snippets
     use "L3MON4D3/LuaSnip" -- Snippet engine
@@ -72,6 +72,11 @@ return packer.startup(function(use)
     use { "williamboman/mason-lspconfig.nvim", commit = "0051870dd728f4988110a1b2d47f4a4510213e31" }
     -- for formatters and linters
     use { "jose-elias-alvarez/null-ls.nvim", commit = "c0c19f32b614b3921e17886c541c13a72748d450" } 
+    
+    -- nvim-treesitter
+    -- https://github.com/nvim-treesitter/nvim-treesitter
+    use { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate",}
+    use "nvim-treesitter/playground"
 
     -- Git
     use "lewis6991/gitsigns.nvim"
