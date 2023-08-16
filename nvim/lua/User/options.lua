@@ -15,7 +15,7 @@ local options = {
     breakindent = true,
     
     hlsearch = true,                        -- highlight all matches on previous search pattern
-    ignorecase = true,                      -- ignore case in search patterns
+    ignorecase = false,                      -- ignore case in search patterns
     mouse = "v",                            -- allow the mouse to be used in neovim
     -- pumheight = 10,                         -- pop up menu height
     -- showmode = false,                       -- we don't need to see things like -- INSERT -- anymore

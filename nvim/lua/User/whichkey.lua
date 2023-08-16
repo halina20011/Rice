@@ -85,13 +85,19 @@ local mappings = {
     ["c"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },
     ["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
     
-    tab = {
+    t = {
         name = "Tabpage",
         
         h = {"<cmd>-tabmove<cr>", "Move left"},
         l = {"<cmd>+tabmove<cr>", "Move rigth"},
     },
-
+    v = {
+        name = "VimTex",
+        c = {"<cmd>VimtexCompile<cr>", "Toggle compile"},
+        r = {"<cmd>VimtexReload<cr>", "Reload"},
+        v = {"<cmd>VimtexView<cr>", "View"},
+        s = {"<cmd>VimtexStatus<cr>", "Status"},
+    },
     p = {
         name = "Packer",
         c = { "<cmd>PackerCompile<cr>", "Compile" },
@@ -126,34 +132,50 @@ local mappings = {
 
     l = {
         name = "LSP",
-        a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" },
-        d = {
-          "<cmd>Telescope lsp_document_diagnostics<cr>",
-          "Document Diagnostics",
-        },
-        w = {
-          "<cmd>Telescope lsp_workspace_diagnostics<cr>",
-          "Workspace Diagnostics",
-        },
-        f = { "<cmd>lua vim.lsp.buf.formatting()<cr>", "Format" },
-        i = { "<cmd>LspInfo<cr>", "Info" },
-        I = { "<cmd>LspInstallInfo<cr>", "Installer Info" },
-        j = {
-          "<cmd>lua vim.lsp.diagnostic.goto_next()<CR>",
-          "Next Diagnostic",
-        },
-        k = {
-          "<cmd>lua vim.lsp.diagnostic.goto_prev()<cr>",
-          "Prev Diagnostic",
-        },
-        l = { "<cmd>lua vim.lsp.codelens.run()<cr>", "CodeLens Action" },
-        q = { "<cmd>lua vim.lsp.diagnostic.set_loclist()<cr>", "Quickfix" },
-        r = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename" },
-        s = { "<cmd>Telescope lsp_document_symbols<cr>", "Document Symbols" },
-        S = {
-          "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>",
-          "Workspace Symbols",
-        },
+        d = {"<cmd>lua vim.lsp.buf.definition()<cr>", "definition"},
+        c = {"<cmd>lua vim.lsp.buf.declaration()<cr>", "declaration"},
+        -- "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
+        -- "gI", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
+        -- "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
+        -- "gl", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
+        -- "<leader>lf", "<cmd>lua vim.lsp.buf.format{ async = true }<cr>", opts)
+        -- "<leader>li", "<cmd>LspInfo<cr>", opts)
+        -- "<leader>lI", "<cmd>LspInstallInfo<cr>", opts)
+        -- "<leader>la", "<cmd>lua vim.lsp.buf.code_action()<cr>", opts)
+        -- "<leader>lj", "<cmd>lua vim.diagnostic.goto_next({buffer=0})<cr>", opts)
+        -- "<leader>lk", "<cmd>lua vim.diagnostic.goto_prev({buffer=0})<cr>", opts)
+        -- "<leader>lr", "<cmd>lua vim.lsp.buf.rename()<cr>", opts)
+        -- "<leader>ls", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
+        -- "<leader>lq", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
+        -- "<leader>D", "<cmd>lua vim.diagnostic.goto_next()<CR>", opts)
+        -- a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" },
+        -- d = {
+        --   "<cmd>Telescope lsp_document_diagnostics<cr>",
+        --   "Document Diagnostics",
+        -- },
+        -- w = {
+        --   "<cmd>Telescope lsp_workspace_diagnostics<cr>",
+        --   "Workspace Diagnostics",
+        -- },
+        -- f = { "<cmd>lua vim.lsp.buf.formatting()<cr>", "Format" },
+        -- i = { "<cmd>LspInfo<cr>", "Info" },
+        -- I = { "<cmd>LspInstallInfo<cr>", "Installer Info" },
+        -- j = {
+        --   "<cmd>lua vim.lsp.diagnostic.goto_next()<CR>",
+        --   "Next Diagnostic",
+        -- },
+        -- k = {
+        --   "<cmd>lua vim.lsp.diagnostic.goto_prev()<cr>",
+        --   "Prev Diagnostic",
+        -- },
+        -- l = { "<cmd>lua vim.lsp.codelens.run()<cr>", "CodeLens Action" },
+        -- q = { "<cmd>lua vim.lsp.diagnostic.set_loclist()<cr>", "Quickfix" },
+        -- r = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename" },
+        -- s = { "<cmd>Telescope lsp_document_symbols<cr>", "Document Symbols" },
+        -- S = {
+        --   "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>",
+        --   "Workspace Symbols",
+        -- },
     },
 
     s = {

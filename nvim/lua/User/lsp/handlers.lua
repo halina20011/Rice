@@ -22,7 +22,7 @@ M.setup = function()
 	end
 
 	local config = {
-		virtual_text = false, -- disable virtual text
+		-- virtual_text = false, -- disable virtual text
 		signs = {
 			active = signs, -- show signs
 		},
@@ -50,6 +50,47 @@ M.setup = function()
 	})
 end
 
+local function show_lsp_warnings()
+    local diagnostics = vim.diagnostic.get()
+    for _, diagnostic in ipairs(diagnostics) do
+        if diagnostic.severity == vim.lsp.protocol.DiagnosticSeverity.Warning then
+            -- Display the warning message
+            vim.api.nvim_echo({ { diagnostic.message, 'WarningMsg' } }, true, {})
+        end
+    end
+end
+vim.api.nvim_set_keymap('n', '<leader>lsw', '<cmd>lua show_lsp_warnings()<CR>', { noremap = true, silent = true })
+
+-- vim.g.virtual_text = {}
+--
+-- vim.g.virtual_text.show = true
+--
+-- function _G.showVirtualText()
+--     vim.g.virtual_text.show = not vim.g.virtual_text.show
+--     vim.lsp.diagnostic.display(
+--         vim.lsp.diagnostic.get(),
+--         0,
+--         1,
+--         {virtual_text = vim.g.virtual_text.show}
+--     )
+-- end
+
+
+virtual_text = {}
+
+virtual_text.show = true
+
+virtual_text.toggle = function()
+    virtual_text.show = not virtual_text.show
+    vim.lsp.diagnostic.display(
+        vim.lsp.diagnostic.get(0, 1),
+        0,
+        1,
+        {virtual_text = virtual_text.show}
+    )
+end
+
+
 local function lsp_keymaps(bufnr)
 	local opts = { noremap = true, silent = true }
 	local keymap = vim.api.nvim_buf_set_keymap
@@ -68,6 +109,9 @@ local function lsp_keymaps(bufnr)
 	keymap(bufnr, "n", "<leader>lr", "<cmd>lua vim.lsp.buf.rename()<cr>", opts)
 	keymap(bufnr, "n", "<leader>ls", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
 	keymap(bufnr, "n", "<leader>lq", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
+    -- keymap(bufnr, "n", "<leader>lD", "<cmd>lua vim.diagnostic.goto_next()<CR>", opts)
+    keymap(bufnr, "n", '<leader>lD', '<cmd>lua.toggle_diagnostics()<CR>', opts)
+    keymap(bufnr, "n", '<leader>lv', '<cmd>lua virtual_text.toggle()<CR>', opts)
 end
 
 M.on_attach = function(client, bufnr)
@@ -87,6 +131,6 @@ M.on_attach = function(client, bufnr)
 	illuminate.on_attach(client)
 end
 
-M.setup()
+-- M.setup()
 
---return M
+return M

@@ -1,10 +1,11 @@
-
 -- local servers = {}
 local servers = {
-    "cssls",
     "html",
-    -- "tailwindcss",
-    -- "denols",
+    -- "denols", -- diagnostic (custom setup is down)
+    "tsserver", -- highlightlighting, cmp 
+    "clangd",
+    "cssls",
+    -- "stylelint_lsp",
 	"pyright",
 	"jsonls",
 }
@@ -34,6 +35,12 @@ if not lspconfig_status_ok then
 end
 
 local opts = {}
+lspconfig.denols.setup{
+    -- root_dir = lspconfig.util.root_pattern('deno.json', 'deno.jsonc'),
+    on_attach = on_attach,
+    single_file_support=true,
+    capabilities = capabilities,
+};
 
 for _, server in pairs(servers) do
 	opts = {

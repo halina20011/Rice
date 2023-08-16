@@ -197,11 +197,15 @@ colors:
     #background: '#1d1f21'
     #foreground: '#c5c8c6'
 
-    # Blue color
+    # blue colors
     background: '#051121'
     foreground: '#2f6bbb'
     #foreground: '#8000ff'
-
+    
+    # pinkish
+    # background: '#1E0B35'
+    # foreground: '#823376'
+    # foreground: '#1E0B35'
     #background: '#1d1f21'
     #foreground: '#cccccc'
 

@@ -40,9 +40,9 @@ packer.init({
 
 -- Install your plugins here
 return packer.startup(function(use)
-    use { "wbthomason/packer.nvim", commit = "6afb67460283f0e990d35d229fd38fdc04063e0a" } -- Have packer manage itself
-    use "nvim-lua/popup.nvim" -- An implementation of the Popup API from vim in Neovim
-    use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
+    use { "wbthomason/packer.nvim", commit = "6afb67460283f0e990d35d229fd38fdc04063e0a" } -- have packer manage itself
+    use "nvim-lua/popup.nvim" -- an implementation of the Popup API from vim in Neovim
+    use "nvim-lua/plenary.nvim" -- useful lua functions used ny lots of plugins
     use "folke/which-key.nvim"
     -- Indent Blankline
     use "lukas-reineke/indent-blankline.nvim"
@@ -58,7 +58,7 @@ return packer.startup(function(use)
     use "hrsh7th/cmp-path"              -- path completions
     use "hrsh7th/cmp-cmdline"           -- cmdline completions
     use "saadparwaiz1/cmp_luasnip"      -- snippet completions
-    -- use "hrsh7th/cmp-nvim-lsp"
+    use "hrsh7th/cmp-nvim-lsp"
     use "hrsh7th/cmp-nvim-lua"
 
     -- Snippets
