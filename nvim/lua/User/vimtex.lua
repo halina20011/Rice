@@ -1,6 +1,7 @@
 -- yay -S okular
 -- pip install neovim-remote
 -- yay -S latexrun-git
+-- yay -Si texlive-bin
 
 vim.cmd([[syntax enable]])
 vim.cmd([[let g:vimtex_view_general_viewer = 'okular']])

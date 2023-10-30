@@ -5,6 +5,8 @@ local servers = {
     "tsserver", -- highlightlighting, cmp 
     "clangd",
     "cssls",
+    "csharp_ls",
+    "texlab",
     -- "stylelint_lsp",
 	"pyright",
 	"jsonls",
@@ -41,6 +43,14 @@ lspconfig.denols.setup{
     single_file_support=true,
     capabilities = capabilities,
 };
+
+-- lspconfig.clangd.setup{
+--     cmd = {"clangd", "--background-index", "--include-directory=./"},
+--     filetypes = {"c"},
+--     extraArgs = {
+--         "-I/usr/include/libxml2",
+--     }
+-- }
 
 for _, server in pairs(servers) do
 	opts = {

@@ -134,6 +134,7 @@ local mappings = {
         name = "LSP",
         d = {"<cmd>lua vim.lsp.buf.definition()<cr>", "definition"},
         c = {"<cmd>lua vim.lsp.buf.declaration()<cr>", "declaration"},
+        t = {"<cmd>lua  vim.diagnostic.disable()<cr>", "toggle diagnostic"},
         -- "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
         -- "gI", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
         -- "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
@@ -160,14 +161,14 @@ local mappings = {
         -- f = { "<cmd>lua vim.lsp.buf.formatting()<cr>", "Format" },
         -- i = { "<cmd>LspInfo<cr>", "Info" },
         -- I = { "<cmd>LspInstallInfo<cr>", "Installer Info" },
-        -- j = {
-        --   "<cmd>lua vim.lsp.diagnostic.goto_next()<CR>",
-        --   "Next Diagnostic",
-        -- },
-        -- k = {
-        --   "<cmd>lua vim.lsp.diagnostic.goto_prev()<cr>",
-        --   "Prev Diagnostic",
-        -- },
+        j = {
+          "<cmd>lua vim.lsp.diagnostic.goto_next()<CR>",
+          "Next Diagnostic",
+        },
+        k = {
+          "<cmd>lua vim.lsp.diagnostic.goto_prev()<cr>",
+          "Prev Diagnostic",
+        },
         -- l = { "<cmd>lua vim.lsp.codelens.run()<cr>", "CodeLens Action" },
         -- q = { "<cmd>lua vim.lsp.diagnostic.set_loclist()<cr>", "Quickfix" },
         -- r = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename" },
