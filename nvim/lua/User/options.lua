@@ -27,7 +27,7 @@ local options = {
     splitright = true,                      -- force all vertical splits to go to the right of current window
 
     termguicolors = true,                   -- set term gui colors (most terminals support this)
-    timeoutlen = 1000,                      -- time to wait for a mapped sequence to complete (in milliseconds)
+    timeoutlen = 500,                      -- time to wait for a mapped sequence to complete (in milliseconds)
     undofile = true,                        -- enable persistent undo
     updatetime = 300,                       -- faster completion (4000ms default)
 
@@ -48,8 +48,7 @@ local options = {
     sidescrolloff = 6,                      -- when scrolling up
 
     guifont = "monospace:h17",              -- the font used in graphical neovim applications
-    -- foldlevel       = 0,
-    foldlevelstart       = 0,
+    foldlevelstart = 0,
     -- foldmethod="syntax",
     foldmethod = "expr",
     foldexpr = "nvim_treesitter#foldexpr()",
@@ -66,3 +65,4 @@ vim.opt.shortmess:append "c"
 vim.cmd "set whichwrap+=<,>,[,],h,l"
 vim.cmd [[set iskeyword+=-]]
 vim.cmd [[set formatoptions-=cro]] -- TODO: this doesn't seem to work
+vim.cmd [[set nofoldenable]]

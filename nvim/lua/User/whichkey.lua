@@ -189,7 +189,7 @@ local mappings = {
         R = { "<cmd>Telescope registers<cr>", "Registers" },
         k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
         C = { "<cmd>Telescope commands<cr>", "Commands" },
-    },
+    }
 }
 
 local vopts = {
@@ -201,10 +201,11 @@ local vopts = {
     nowait = true, -- use `nowait` when creating keymaps
 }
 
-local vmappings = {
-    ["/"] = { "<ESC><CMD>lua require(\"Comment.api\").toggle_linewise_op(vim.fn.visualmode())<CR>", "Comment" },
-}
+-- local vmappings = {
+--     ["/"] = { "<cmd>gcc<CR>", "Comment" },
+--     -- ["/"] = { "<ESC><CMD>lua require(\"Comment.api\").toggle_linewise_op(vim.fn.visualmode())<CR>", "Comment" },
+-- }
 
 which_key.setup(setup)
 which_key.register(mappings, opts)
-which_key.register(vmappings, vopts)
+-- which_key.register(vmappings, vopts)

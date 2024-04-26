@@ -44,8 +44,13 @@ keymap("n", "<S-l>", ":bnext<CR>", opts)
 keymap("n", "<S-h>", ":bprevious<CR>", opts)
 
 -- Insert --
--- Press jk fast to enter
+-- Press jk fast to exit
 keymap("i", "jk", "<ESC>", opts)
+-- move with ctrl+h/j/k/l as with arrows
+keymap("i", "<C-h>", "<C-left>", opts)
+keymap("i", "<C-l>", "<C-right>", opts)
+keymap("i", "<C-j>", "<down>", opts)
+keymap("i", "<C-k>", "<up>", opts)
 
 -- Visual --
 -- Stay in indent mode
@@ -75,8 +80,61 @@ keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
 
 -- Comment
 -- / == _ ?
-keymap("n", "<C-_>", "gcc", term_opts)
-keymap("v", "<C-_>", "gc", term_opts)
-
+keymap("n", "<C-/>", "gcc", term_opts)
+keymap("v", "<C-/>", "gc", term_opts)
 
 keymap("n", "tt", ":tabnew<CR>", term_opts)
+
+function _G.tagFunction()
+    local word = vim.fn.expand("<cword>")
+    vim.cmd("tag " .. word)
+end
+
+keymap("n", "T", ":lua tagFunction()<CR>", opts)
+
+function showMessage(message)
+    vim.cmd("echo \"" .. vim.fn.fnameescape(message) .. "\"")
+end
+
+local tC = table.concat
+
+function getVisualSelection()
+    local sStart = vim.fn.getpos("'<")
+    local sEnd = vim.fn.getpos("'>")
+    local startLine = sStart[2]
+    local endLine = sEnd[2]
+
+    local lines = vim.api.nvim_buf_get_lines(0, startLine - 1, endLine, false)
+    local text = table.concat(lines, "")
+    showMessage("lines >" .. table.concat(lines, "\n"))
+    showMessage("from " .. table.concat(sStart, " ") )
+    showMessage("to " .. table.concat(sEnd, " ") )
+
+    -- sub(string, from, to)
+    lines[1] = string.sub(lines[1], sStart[3])
+
+    local beforeSel = vim.api.nvim_buf_get_lines(0, startLine - 1, startLine, false)[1]
+    local afterSel = vim.api.nvim_buf_get_lines(0, endLine, endLine + 1, false)[1]
+
+    return beforeSel, table.concat(lines, "\n"), afterSel
+end
+
+function _G.reverseSelected()
+    local beforeSel, selectedText, afterSel = getVisualSelection()
+    local reverseSelectedText = string.reverse(selectedText)
+
+    showMessage("before " .. beforeSel)
+    showMessage("selected " .. selectedText)
+    showMessage("after " .. afterSel)
+
+    local sStart = vim.fn.getpos("'<")
+    local sEnd = vim.fn.getpos("'>")
+
+    local startLine = sStart[2]
+    local endLine = sEnd[2]
+
+    local newText = vim.split(beforeSel .. reverseSelectedText .. afterSel, "\n")
+    local lines = vim.api.nvim_buf_set_lines(0, startine - 1, endLine, false, newText)
+end
+
+keymap("v", "R", ":lua reverseSelected()<CR>", opts)

@@ -104,19 +104,22 @@ cmp.setup {
 
     -- Setting for formatting
     formatting = {
-    fields = { "kind", "abbr", "menu" },
-    format = function(entry, vim_item)
-      -- Kind icons
-      vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
-      -- vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind) -- This concatonates the icons with the name of the item kind
-      vim_item.menu = ({
-         nvim_lsp = "[LSP]",
-        -- luasnip = "[Snippet]",
-        buffer = "[Buffer]",
-        path = "[Path]",
-      })[entry.source.name]
-      return vim_item
-    end,
+        fields = { "kind", "abbr", "menu" },
+        format = function(entry, vim_item)
+            -- Kind icons
+            vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
+            -- -- vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind) -- This concatonates the icons with the name of the item kind
+      
+            vim_item.menu = ({
+                nvim_lsp = "[LSP]",
+                -- luasnip = "[Snippet]",
+                buffer = "[Buffer]",
+                path = "[Path]",
+            })[entry.source.name]
+            -- https://github.com/hrsh7th/nvim-cmp/issues/88#issuecomment-906585635
+            vim_item.abbr = string.sub(vim_item.abbr, 1, vim.api.nvim_win_get_width(0) / 2)
+            return vim_item
+        end,
     },
     sources = {
         { name = "nvim_lsp" },

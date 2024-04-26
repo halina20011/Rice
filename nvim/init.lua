@@ -16,3 +16,5 @@ require "User.colorsh"
 require "User.markdownPreview"
 
 require "User.reload"
+
+require "User.colorize"

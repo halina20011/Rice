@@ -87,6 +87,10 @@ return packer.startup(function(use)
     -- Latex
     use "lervag/vimtex"
 
+    -- colors for css
+    -- https://github.com/norcalli/nvim-colorizer.lua
+    use "norcalli/nvim-colorizer.lua"
+
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
     if PACKER_BOOTSTRAP then

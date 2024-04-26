@@ -2,10 +2,11 @@
 local servers = {
     "html",
     -- "denols", -- diagnostic (custom setup is down)
-    "tsserver", -- highlightlighting, cmp 
-    "clangd",
+    -- "tsserver", -- highlightlighting, cmp 
+    -- "clangd",
     "cssls",
-    "csharp_ls",
+    "cmake",
+    -- "csharp_ls",
     "texlab",
     -- "stylelint_lsp",
 	"pyright",
@@ -37,21 +38,27 @@ if not lspconfig_status_ok then
 end
 
 local opts = {}
-lspconfig.denols.setup{
-    -- root_dir = lspconfig.util.root_pattern('deno.json', 'deno.jsonc'),
-    on_attach = on_attach,
-    single_file_support=true,
-    capabilities = capabilities,
-};
+-- lspconfig.denols.setup{
+--     -- root_dir = lspconfig.util.root_pattern('deno.json', 'deno.jsonc'),
+--     on_attach = on_attach,
+--     single_file_support=true,
+--     capabilities = capabilities,
+-- };
+
+
+lspconfig.clangd.setup{
+    cmd = { "clangd", "--background-index", "--enable-config"},
+    filetypes = { "c", "cpp", "objc", "objcpp" },
+}
 
 -- lspconfig.clangd.setup{
---     cmd = {"clangd", "--background-index", "--include-directory=./"},
+--     cmd = {"clangd", "--background-index", "-I/usr/avr/include/"},
 --     filetypes = {"c"},
---     extraArgs = {
---         "-I/usr/include/libxml2",
---     }
+--     -- extraArgs = {
+--     --     "-I/usr/avr/include/"
+--     -- }
 -- }
-
+--
 for _, server in pairs(servers) do
 	opts = {
         on_attach = require("User.lsp.handlers").on_attach,
