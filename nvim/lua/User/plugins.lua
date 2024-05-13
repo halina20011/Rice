@@ -42,7 +42,7 @@ packer.init({
 return packer.startup(function(use)
     use { "wbthomason/packer.nvim", commit = "6afb67460283f0e990d35d229fd38fdc04063e0a" } -- have packer manage itself
     use "nvim-lua/popup.nvim" -- an implementation of the Popup API from vim in Neovim
-    use "nvim-lua/plenary.nvim" -- useful lua functions used ny lots of plugins
+    use "nvim-lua/plenary.nvim" -- useful lua functions used by lots of plugins
     use "folke/which-key.nvim"
     -- Indent Blankline
     use "lukas-reineke/indent-blankline.nvim"

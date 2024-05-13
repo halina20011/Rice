@@ -41,6 +41,18 @@ fc-cache -f
 ## gdb
 gdb-dashboard https://github.com/cyrus-and/gdb-dashboard/blob/master/.gdbinit
 
+```
+define hook-quit
+    set confirm off
+end
+
+define hook-exit
+    set confirm off
+end
+
+[gdb-dashboard]
+```
+
 ## Other software
 libreoffice-still
 cura-bin

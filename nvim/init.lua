@@ -11,6 +11,7 @@ require "User.gitsigns"
 require "User.comment"
 require "User.vimtex"
 
+require "User.indentLines"
 require "User.colorScheme"
 require "User.colorsh"
 require "User.markdownPreview"
