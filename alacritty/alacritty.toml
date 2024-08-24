@@ -73,6 +73,8 @@ TERM = "xterm-256color"
 
 [font]
 size = 11.0
+# offset.x = -1
+# offset.y = -8
 
 [font.bold]
 family = "monospace"
@@ -99,7 +101,13 @@ mods = "None"
 [[keyboard.bindings]]
 action = "SpawnNewInstance"
 key = "N"
-mods = "Command"
+mods = "Alt"
+# mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u0017"
+key = "q"
+mods = "Control"
 
 [window]
 dynamic_title = true

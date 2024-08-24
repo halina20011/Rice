@@ -109,7 +109,7 @@ cmp.setup {
             -- Kind icons
             vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
             -- -- vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind) -- This concatonates the icons with the name of the item kind
-      
+
             vim_item.menu = ({
                 nvim_lsp = "[LSP]",
                 -- luasnip = "[Snippet]",
@@ -126,17 +126,17 @@ cmp.setup {
         -- { name = "luasnip" },
         { name = "buffer" },
         { name = "path" },
-        },
-        confirm_opts = {
-            behavior = cmp.ConfirmBehavior.Replace,
-            select = false,
-        },
-        window = {
-            documentation = cmp.config.window.bordered(),
-        },
-        experimental = {
-            ghost_text = false,
-            native_menu = false,
+    },
+    confirm_opts = {
+        behavior = cmp.ConfirmBehavior.Replace,
+        select = false,
+    },
+    window = {
+        documentation = cmp.config.window.bordered(),
+    },
+    experimental = {
+        ghost_text = false,
+        native_menu = false,
     },
 
     -- Set configuration for specific filetype.

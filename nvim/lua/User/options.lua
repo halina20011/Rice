@@ -15,7 +15,7 @@ local options = {
     breakindent = true,
     
     hlsearch = true,                        -- highlight all matches on previous search pattern
-    ignorecase = false,                      -- ignore case in search patterns
+    ignorecase = false,                     -- ignore case in search patterns
     mouse = "v",                            -- allow the mouse to be used in neovim
     -- pumheight = 10,                         -- pop up menu height
     -- showmode = false,                       -- we don't need to see things like -- INSERT -- anymore
@@ -27,9 +27,9 @@ local options = {
     splitright = true,                      -- force all vertical splits to go to the right of current window
 
     termguicolors = true,                   -- set term gui colors (most terminals support this)
-    timeoutlen = 500,                      -- time to wait for a mapped sequence to complete (in milliseconds)
+    timeoutlen = 500,                       -- time to wait for a mapped sequence to complete (in milliseconds)
     undofile = true,                        -- enable persistent undo
-    updatetime = 300,                       -- faster completion (4000ms default)
+    updatetime = 500,                       -- faster completion (4000ms default)
 
     -- Tabs
     expandtab = true,                       -- convert tabs to spaces
@@ -52,6 +52,7 @@ local options = {
     -- foldmethod="syntax",
     foldmethod = "expr",
     foldexpr = "nvim_treesitter#foldexpr()",
+    -- foldtext = "nvim_treesitter#foldtext()",
     -- foldlevelstart=99,
     foldcolumn = "1",
 }

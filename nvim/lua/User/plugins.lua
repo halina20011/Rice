@@ -49,7 +49,7 @@ return packer.startup(function(use)
 
     -- Colorschemes
     -- use "lunarvim/colorschemes" -- A bunch of colorschemes you can try out
-    use "folke/tokyonight.nvim"
+    use { "folke/tokyonight.nvim", commit = "ff81eac0ecf85db235dfc4c9d54f2d07d662a423" }
     --use "lunarvim/darkplus.nvim"
 
     -- cmp plugins

@@ -4,6 +4,7 @@ require "User.options"
 require "User.keymaps"
 require "User.cmp"
 require "User.lsp"
+
 require "User.treesitter"
 require "User.whichkey"
 
@@ -17,5 +18,6 @@ require "User.colorsh"
 require "User.markdownPreview"
 
 require "User.reload"
+require "User.lsp.lspFixcurrent"
 
 require "User.colorize"

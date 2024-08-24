@@ -4,7 +4,7 @@ if not status_ok then
 end
 
 configs.setup {
-    ensure_installed = {"c", "vim", "vimdoc", "query", "vue", "xml", "javascript"},
+    ensure_installed = {"c", "vim", "vimdoc", "query", "vue", "xml", "javascript", "typescript", "yaml"},
     ignore_install = {"php"}, -- List of parsers to ignore installing
     sync_install = false, -- install languages synchronously (only applied to `ensure_installed`)
     highlight = {

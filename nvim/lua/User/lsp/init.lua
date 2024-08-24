@@ -3,13 +3,15 @@ if not status_ok then
     return
 end
 
+vim.lsp.set_log_level "off"
+
 -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#volar
 lspconfig.volar.setup{
     -- root_dir = root_pattern(".git", "package.json", "tsconfig.json", "jsconfig.json"),
     filetypes = {"vue"},
     init_options = {
         typescript = {
-            tsdk = '/usr/local/lib/nodejs/node-v20.11.0-linux-x64/lib/node_modules/typescript/lib'
+            tsdk = "/usr/local/lib/nodejs/node-v20.11.0-linux-x64/lib/node_modules/typescript/lib"
         },
         vue = {
             hybridMode = false,

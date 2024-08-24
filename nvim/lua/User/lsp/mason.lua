@@ -6,7 +6,7 @@ local servers = {
     -- "clangd",
     "cssls",
     "cmake",
-    -- "csharp_ls",
+    "csharp_ls",
     "texlab",
     -- "stylelint_lsp",
 	"pyright",
