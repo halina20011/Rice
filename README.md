@@ -2,10 +2,15 @@
 Custom rice with custom scripts and configs for my machine
 
 ## Tools to install
-yay -S zsh
-yay -S wget p7zip unzip ranger xclip htop imagemagick pavucontrol
+yay -S wget p7zip unzip ranger xclip htop imagemagick pavucontrol jq udisks2
 
 lsusb: yay -S usbutils
+
+### ZSH 
+```shell
+yay -S zsh jq
+chsh -s /bin/zsh root
+```
 
 ## For:
 i3
@@ -17,6 +22,10 @@ firefox
 
 ## i3
 ```shell
+
+yay -S xorg-server xorg-xinit xorg-xrandr
+yay -S i3
+
 yay -S i3-wm i3lock polybar
 sudo apt install i3-wm i3lock polybar
 ```
@@ -78,16 +87,18 @@ end
 ```
 
 ## Other software
+keepassxc
 libreoffice-still
 cura-bin
+freecad-appimage blender-bin
 freecad-weekly-appimage/freecad-appimage 
 
 ### KiCad
-kicad
-kicad-library-3d-git
-kicad-library-digikey-git
-kicad-library-espressif-git
-kicad-library-git
+yay -S kicad \
+    kicad-library-3d-git \
+    kicad-library-digikey-git \
+    kicad-library-espressif-git \
+    kicad-library-git \ 
 
 
 ### Docker
